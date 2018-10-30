@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function augment(receivingClass, givingClass) {
+        for(var key in givingClass.prototype) {
+            if(!receivingClass.prototype[key]) {
+                receivingClass.prototype[key] = givingClass.prototype[key];
+            }
+        }
+    }
+
+    // 掺元类
+    var Mixin = function () {};
+
+    Mixin.prototype.serilize = function () {
+        var output = [];
+        for(var key in this) {
+            output.push(key + ':' + this[key]);
+        }
+
+        return output.join(',');
+    }
+
+
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype.getName = function () {
+        console.log(this.name);
+    }
+
+    augment(Person, Mixin);
+
+    var p = new Person('zjj');
+
+    console.log(p.serilize());
+
+</script>
+</body>
+</html>

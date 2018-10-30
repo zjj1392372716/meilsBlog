@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 接口类
+     * @param name
+     * @param method
+     */
+    var Interface = function (name, method) {
+        if(arguments.length != 2) {
+            throw new Error('创建的接口对象参数必须为两个,第二个为方法数组')
+        }
+        this.name = name;
+        this.method = [];
+
+
+        for(var i = 0; i < method.length ; i++) {
+            if (typeof method[i] != "string") {
+                throw new Error('参数必须是string')
+            }
+
+            this.method.push(method[i]);
+        }
+    }
+    //  接口类的静态方法 —— 检查一个对象是否满足接口
+    Interface.checkImplement = function (obj) {
+        if(arguments.length < 2) {
+            throw new Error('参数错误，第一个参数为一个对象，之后的参数为接口对象，至少为两个对象');
+        }
+
+        for(var i = 1; i < arguments.length; i++) {
+            var arginterfaceobj = arguments[i]; // 接口对象
+            for(var j = 0; j < arginterfaceobj.method.length; j++) {
+                var methodName = arginterfaceobj.method[j];
+
+                if(typeof obj[methodName] != "function" || !obj[methodName]) {
+                    throw new Error('有接口的方法没实现')
+                    return false;
+                }
+            }
+        }
+
+        return true;
+
+    }
+    // 申明一个接口对象
+    var interface1 = new Interface('interface1', ['add', 'update']);
+
+
+    /**
+     * Obj测试类
+     */
+    var Obj = function () {
+        //...
+    }
+
+    Obj.prototype.add = function () {
+        //..
+    }
+    Obj.prototype.update = function () {
+        //..
+    }
+
+    var o = new Obj(); //实例化
+    var flag = Interface.checkImplement(o, interface1); // 测试是否符合接口
+    if(flag) {
+        console.log('接口全部实现了');
+    } else {
+        console.log('存在为实现的积极呀');
+    }
+
+
+    o.add();
+
+</script>
+</body>
+</html>

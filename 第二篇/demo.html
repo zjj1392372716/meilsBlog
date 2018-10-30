@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * interface Composite{
+     *     function add() {}
+     *     function remove() {}
+     * }
+     *
+     * interface FormItem {
+     *     function save() {}
+     * }
+     */
+
+    var CompositeForm = function () {
+        
+    }
+    
+    CompositeForm.prototype.add = function () {
+        
+    }
+    
+    CompositeForm.prototype.remove = function () {
+        
+    }
+    
+    CompositeForm.prototype.save = function () {
+
+    }
+
+    /**java实现形式
+     * public interface Walkable {
+     *        public void walk();
+     * }
+     *
+     * public interface Fightable {
+     *        public void fight();
+     * }
+     */
+    var Knight = function(name) {
+        this.name = name;
+        //Knight实现了Walkabe和Fightable
+    };
+    Knight.prototype.walk = function() {
+        alert(this.name+" is walking!");
+    };
+    Knight.prototype.fight = function() {
+        alert(this.name+" is fighting!");
+    };
+    var k = new Knight("jay");
+    k.fight();
+
+</script>
+</body>
+</html>

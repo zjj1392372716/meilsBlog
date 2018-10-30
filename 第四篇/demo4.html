@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+
+</div>
+
+<script src="./editinEdit1.js"></script>
+<script>
+
+    function clone(object) {
+        var F = function() {};
+        F.prototype = object;
+        return new F();
+    }
+
+
+    var dom = document.getElementById('box');
+    var title = clone(EditInPlace);
+    title.configue('titles', dom, 'here this');
+    var val = title.getValue();
+    console.log(val);
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Book = (function Book() {
+        // private static attr
+        var count = 0 ;
+
+
+        // private static method
+        function  checkVerson(v) {
+            //...
+        }
+
+        return function (version, title, author) {
+
+            // private attr
+            var version, title, author;
+
+            // privileged method
+            this.getVersion = function () {
+                return version;
+            }
+            this.getTitle = function () {
+                return title;
+            }
+            this.getAuthor = function () {
+                return author;
+            }
+            this.setVersion = function (v) {
+                // if(!checkVerson(v)) {
+                //     throw new Error('版本号错误！');
+                // }
+                version = v;
+            }
+            this.setTitle = function (t) {
+                title = t;
+            }
+            this.setAuthor = function (a) {
+                author = a;
+            }
+
+            this.setTitle(title);
+            this.setAuthor(author);
+            this.setVersion(version);
+        }
+
+        count++;
+    })();
+
+    // public staitc method
+    Book.staticM = function () {
+
+    }
+
+    // public method
+    Book.prototype.display = function () {
+        console.log(this.getTitle());
+        return this;
+    }
+
+    var b = new Book('2.0', 'meilsbook', 'book');;
+    b.display();
+
+
+
+</script>
+</body>
+</html>

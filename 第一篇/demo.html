@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        // 定义一个动画类
+        // 好处： 可以维护一些内部状态，并且具有一些仅可以对内部状态进行操作的方法
+        var Animation = function () {
+            // ...
+        }
+
+        Function.prototype.method = function (name, fn) {
+            this.prototype[name] = fn;
+        }
+        Animation.method('start', function () {
+            // ...
+        })
+        Animation.method('end', function () {
+            // ...
+        })
+
+        var baz;
+
+        (function () {
+            var foo = 1;
+            var bar = 2;
+            baz = function () {
+                return foo * bar;
+            }
+        })();
+
+        baz();
+    </script>
+</body>
+</html>

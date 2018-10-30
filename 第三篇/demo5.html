@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var Person = function () {
+        Person.count++;
+    }
+
+    // 静态属性
+    Person.count = 0;
+    // 静态方法
+    Person.getCount = function () {
+        console.log(Person.count);
+    }
+
+    var p1= new Person();
+    var p2= new Person();
+    var p3= new Person();
+
+    //静态属性跟随类来出现。只会出现一份
+    Person.getCount();
+
+</script>
+</body>
+</html>

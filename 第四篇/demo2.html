@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 一个person对象，字面量的形式创建
+        var Person = {
+            name: 'meils',
+            getName: function () {
+                console.log(this.name);
+            }
+        };
+
+        // 继承函数
+        function clone(object) {
+            var F = function() {};
+            F.prototype = object;
+            return new F();
+        }
+
+        var arr = [];
+
+
+        arr[0] = clone(Person);
+        arr[0].name = "no1";
+        arr[0].getName(); // no1
+        arr[0].job = "STUDENT";
+
+        arr[1] = clone(Person);
+        arr[1].getName(); // meils
+        arr[1].name = "no2";
+        console.log(arr[1].job); // undefined
+        arr[1].getName(); // no2
+    </script>
+</body>
+</html>

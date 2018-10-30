@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var MainPage = {};
+    MainPage.init ={
+        _inAttr:0,
+        _inMethod:function(){
+            //...
+        },
+        pubAttr1: 1,
+        pubAttr2: 2,
+        pubMethod1:function(){
+            console.log(this._inAttr);
+        },
+        pubMethod2: function(){
+            this._inMethod();
+        }
+    }
+
+
+    MainPage.init.pubMethod1();
+</script>
+</body>
+</html>

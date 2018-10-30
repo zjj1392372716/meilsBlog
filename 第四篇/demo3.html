@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div id="box">
+
+</div>
+
+<script src="./editInPlace.js"></script>
+<script>
+    var dom = document.getElementById('box');
+    var title = new EditInPlaceField('title1',dom , 'here title');
+    var val = title.getValue();
+    console.log(val);
+</script>
+</body>
+</html>

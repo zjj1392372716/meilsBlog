@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * Book类
+     * @param version
+     * @param title
+     * @param author
+     * @constructor
+     */
+    var Book = function (version, title, author) {
+        if(version == undefined) {
+            throw new Error('参数至少为一个哦');
+        }
+
+        this._version = version;
+        this._title = title || "";
+        this._author = author || "";
+    }
+
+    Book.prototype = {
+        display: function () {
+            // ..
+            console.log('book')
+        },
+        checkVersion: function (ver) {
+            // ..
+            // if() {
+            //    return false;
+            // }
+            return true;
+        },
+        getVersion: function () {
+            return this._version;
+        },
+        getTitle: function () {
+            return this._title;
+        },
+        getAuthor: function () {
+            return this._author;
+        },
+        setVersion: function (v) {
+            this._version = v;
+        },
+        setTitle: function (t) {
+            this._title = t;
+        },
+        setAuthor: function (a) {
+            this._author = a;
+        }
+    }
+    var b = new Book('1.2.3', 'meilsbook', 'meils');
+    var flag = b.checkVersion(b.version);
+    if(flag) {
+        b.display();
+    }
+
+</script>
+</body>
+</html>

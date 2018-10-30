@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var MainPage = {};
+    MainPage.init = function(){
+        //  内部私有的方法和属性
+        var inAttr = 0;
+        var inMethod = function(){
+            //...
+        }
+
+        // 公有的属性和方法
+        return {
+            pubAttr1: 1,
+                pubAttr2: 2,
+                pubMethod1:function(){
+                console.log(inAttr);
+                },
+            pubMethod2: function(){}
+        };
+    }();
+
+
+    MainPage.init.pubMethod1();
+</script>
+</body>
+</html>

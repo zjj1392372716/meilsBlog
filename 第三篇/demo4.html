@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var Book = function (version, title, author) {
+        // 私有变量
+        // private var
+        var version, title, author;
+
+        // 私有方法
+        // private method
+        function checkversion(v) {
+
+        }
+
+
+        // 特权方法
+        // 公有方法，能够访问私有属性和方法，为了能在对象外部访问，所以在前面添加了this关键字
+        this.getVersion = function () {
+            return version;
+        }
+        this.getTitle = function () {
+            return title;
+        }
+        this.getAuthor = function () {
+            return author;
+        }
+        this.setVersion = function (v) {
+            version = v;
+        }
+        this.setTitle = function (t) {
+            title = t;
+        }
+        this.setAuthor = function (a) {
+            author = a;
+        }
+
+    }
+
+    // 不需要直接访问私有属性和方法，通过公有方法来访问私有属性和方法。
+    Book.prototype.display = function () {
+        console.log(this.getTitle());
+    }
+
+    var b = new Book('222', 'meilsbook', 'meils');
+    b.display();
+</script>
+</body>
+</html>

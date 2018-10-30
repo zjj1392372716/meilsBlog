@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var foo = function () {
+        var a = 10;
+
+        function bar() {
+            a *= 2;
+            return a;
+        }
+
+        return bar;
+    }
+
+    var baz = foo();
+    console.log(baz()); // 20
+    console.log(baz()); // 40
+    console.log(baz()); // 80
+
+    var moz = foo();
+    console.log(moz()); // 20
+    console.log(moz()); // 40
+    console.log(moz()); // 80
+</script>
+</body>
+</html>

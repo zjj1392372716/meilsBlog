@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var foo = function () {
+        var a = 10;
+
+        function bar() {
+            // 内嵌函数可以访问私有变量
+            a *= 2;
+        }
+
+        bar();
+        return a;
+    }
+
+    console.log(foo()); // 20
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * es6 的类实现已经静态方法
+     */
+    class Person{
+        constructor(name, age) {
+            // 实例属性
+            this._name = name;
+            this._age = age;
+
+        }
+        // 实例方法
+        getName() {
+            return this._name;
+        }
+
+        getAge() {
+            return this._age;
+        }
+    }
+
+    // var p = new Person('zjj', 23);
+    // alert(p.getName());
+
+
+    // 继承
+    class Web extends Person{
+        constructor(name, age, sex) {
+            // 实例属性
+            super(name, age);
+            this._sex = sex;
+        }
+        // 实例方法
+        pring() {
+            console.log(this._sex);
+        }
+        // 静态方法
+        static say() {
+            console.log('静态方法');
+        }
+
+    }
+
+    var c = new Web('zjj', 23, 'boy');
+    c.getName();
+    c.pring();
+    Web.say();
+</script>
+
+</body>
+</html>

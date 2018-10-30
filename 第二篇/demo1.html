@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var Knight = function(name) {
+        this.name = name;
+        //implementInterfaces是固定的(说明实现了那些对象)
+        this.implementInterfaces=["Walkable","Fightable"];
+    };
+    Knight.prototype.walk = function() {
+        alert(this.name+" is walking!");
+    };
+    Knight.prototype.fight = function() {
+        alert(this.name+" is fighting!");
+    };
+
+
+    //检查是否实现了上面定义的this.implementInterfaces=["Walkable","Fightable"]接口数组
+    function CheckKnight(obj) {
+        if(!isImplements(obj,"Fightable","Walkable")) throw new Error("必须实现Fightable和Walkable两个接口！");
+    };
+
+
+    function isImplements(obj) {
+        //obj为要验证得对象(如果没有实现的接口,就不让它验证)
+        if(!obj.implementInterfaces) throw new Error("必须声明所需要实现的接口");
+        //每一个方法中都存在一个对象arguments来存储传递进来的实际参数
+        //除了第一个以外,其他为实现了接口对象
+        for(var i=1;i<arguments.length;i++) {
+            //判断参数是否为String
+            if(typeof arguments[i]!="string") throw new Error(arguments[i]+"的类型不正确");
+            var found = false;
+            //obj.implementInterfaces.length是上面定义的接口数组
+            for(var j=0;j<obj.implementInterfaces.length;j++) {
+                var inter = obj.implementInterfaces[j];
+                //只要找到相同的字符串就代表实现了相应接口
+                if(inter==arguments[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            //只要isImplements(obj,"Fightable","Walkable")
+            // 后面的字符串(接口对象)有一个没有实现就报错
+            if(!found) return false;
+        }
+        return true;
+    };
+    var k = new Knight("zyd");
+    CheckKnight(k);
+    k.walk();
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Class = (function () {
+        // private 常量
+        var DATA_NUM = 100;
+
+        // 构造函数
+        var ctr = function (arg) {
+            
+        }
+
+        // 保护的静态方法
+        ctr.getDefine = function () {
+            // 获得常量
+            return DATA_NUM;
+        }
+
+
+        return ctr; // 返回构造函数
+    })();
+
+    var c = new Class();
+    console.log(Class.getDefine());
+
+
+
+</script>
+</body>
+</html>
